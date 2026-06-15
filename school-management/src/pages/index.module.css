@@ -1,0 +1,207 @@
+/* =====================================================
+   HERO SECTION — MATCHING DARK PREMIUM THEME
+===================================================== */
+
+.heroBanner {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #0f172a 40%,
+    #020617 100%
+  );
+  overflow: hidden;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.25), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(56,189,248,0.18), transparent 45%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes heroGlow {
+  from { opacity: 0.5; }
+  to   { opacity: 0.9; }
+}
+
+.heroContent {
+  text-align: left;
+  animation: fadeUp 1s ease-out;
+}
+
+.heroTitle {
+  font-size: clamp(2.8rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin-bottom: 0.75rem;
+}
+
+.heroSubtitle {
+  max-width: 720px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #c7d2fe;
+  margin-bottom: 2.5rem;
+}
+
+.ctaButton {
+  padding: 0.85rem 2.4rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #38bdf8);
+  color: #020617;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(99,102,241,0.35);
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 45px rgba(56,189,248,0.45);
+}
+
+/* ===============================
+   TOC SECTION
+================================ */
+.tocSection {
+  padding: 5rem 1rem;
+  background: linear-gradient(
+    to bottom,
+    #020617 0%,
+    #020617 50%,
+    #030712 100%
+  );
+  color: #e5e7eb;
+}
+
+.tocHeading {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* ===============================
+   GRID LAYOUTS
+================================ */
+.tocGridTop {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+}
+
+.tocGridBottom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   TOC CARD (MATCHING GLASS STYLE)
+================================ */
+.tocCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 22px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.tocCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+}
+
+.tocHeader {
+  padding: 2rem 2rem 0.5rem 2rem;
+  text-align: center;
+  color: #a5b4fc;
+}
+
+.tocIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tocChapter {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.tocBody {
+  background: transparent;
+  padding: 0 2rem 2rem 2rem;
+  color: #e2e8f0;
+  text-align: center;
+}
+
+.tocTitle {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #f8fafc;
+  margin-bottom: 0.7rem;
+}
+
+.tocDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 1.8rem;
+}
+
+.tocButton {
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.tocButton:hover {
+  background: linear-gradient(135deg, #6366f1, #38bdf8);
+  color: #020617 !important;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+  .tocGridTop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tocGridBottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .tocGridTop {
+    grid-template-columns: 1fr;
+  }
+}

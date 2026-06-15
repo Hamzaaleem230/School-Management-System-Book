@@ -1,0 +1,202 @@
+/* =====================================================
+   GLOBAL CSS OVERRIDES - CUSTOM PREMIUM DARK THEME
+===================================================== */
+
+:root {
+  /* Root Variables: Colors */
+  --ifm-background-color: #020617; /* Extreme dark slate */
+  --ifm-color-primary: #6366f1; /* Electric indigo */
+  --ifm-color-secondary: #38bdf8; /* Neon sky blue */
+  --ifm-code-font-size: 95%;
+
+  /* Custom Docusaurus variables */
+  --docusaurus-card-backdrop: #0f172a; /* Card backdrops */
+  --docusaurus-sidebar-active-tint: rgba(99, 102, 241, 0.2); /* Subtle tint for active sidebar items */
+  --docusaurus-secondary-highlight: #38bdf8; /* Secondary highlights */
+  --docusaurus-text-color: #e2e8f0; /* Light gray text for readability */
+  --docusaurus-muted-text-color: #94a3b8; /* Muted text for descriptions */
+  --docusaurus-border-color: rgba(255, 255, 255, 0.08); /* 1px border lines for glassmorphism */
+  --docusaurus-heading-color: #f8fafc; /* Lighter headings */
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --ifm-line-height-base: 1.75; /* Increased line-height for readability */
+}
+
+/* Dark mode adjustments - ensure theme parameters match flawlessly */
+html[data-theme='dark'] {
+  --ifm-background-color: #020617;
+  --ifm-color-primary: #6366f1;
+  --ifm-color-secondary: #38bdf8;
+  --docusaurus-card-backdrop: #0f172a;
+  --docusaurus-sidebar-active-tint: rgba(99, 102, 241, 0.2);
+  --docusaurus-secondary-highlight: #38bdf8;
+  --docusaurus-text-color: #e2e8f0;
+  --docusaurus-muted-text-color: #94a3b8;
+  --docusaurus-border-color: rgba(255, 255, 255, 0.08);
+  --docusaurus-heading-color: #f8fafc;
+}
+
+/* =====================================================
+   TYPOGRAPHY & DOCS CONTENT
+===================================================== */
+body {
+  font-family: var(--ifm-font-family-base);
+  line-height: var(--ifm-line-height-base);
+  color: var(--docusaurus-text-color);
+  background-color: var(--ifm-background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--docusaurus-heading-color);
+  transition: color 0.3s ease; /* Smooth transition for hover glow */
+}
+
+/* Micro-interactions: Soft glow on headers on hover */
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  text-shadow: 0 0 8px rgba(99, 102, 241, 0.6), 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+/* Readability in markdown blocks */
+.markdown p, .markdown li, .markdown td, .markdown th {
+  line-height: var(--ifm-line-height-base);
+}
+
+/* =====================================================
+   SIDEBAR NAVIGATION LAYOUT
+===================================================== */
+.navbar {
+  background-color: var(--docusaurus-card-backdrop); /* Match card backdrop */
+  backdrop-filter: blur(10px);
+}
+
+.theme-doc-sidebar-item-link-level-1 {
+  /* Parent items style */
+  font-weight: 600;
+  color: var(--docusaurus-text-color);
+}
+
+.menu__link--active {
+  background-color: var(--docusaurus-sidebar-active-tint);
+  color: var(--ifm-color-primary);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+/* Smooth transitions for sidebar folder collapse/expand */
+.menu__list-item-collapsible {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =====================================================
+   GLASSMORHISM TABLES & CALLOUTS
+===================================================== */
+
+/* Docusaurus markdown tables */
+.markdown table {
+  background-color: var(--docusaurus-card-backdrop);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--docusaurus-border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.markdown table th, .markdown table td {
+  border-color: var(--docusaurus-border-color);
+  padding: 12px 16px;
+  color: var(--docusaurus-text-color);
+}
+
+.markdown table th {
+  background-color: rgba(99, 102, 241, 0.1); /* Subtle primary tint for headers */
+}
+
+/* Admonitions (Callouts) */
+.admonition {
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--docusaurus-border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: var(--docusaurus-card-backdrop); /* Default background */
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admonition-note {
+  background-color: rgba(56, 189, 248, 0.1); /* Neon sky blue tint */
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.admonition-info {
+  background-color: rgba(99, 102, 241, 0.1); /* Electric indigo tint */
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.admonition-warning {
+  background-color: rgba(251, 191, 36, 0.1); /* Yellow tint */
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.admonition-danger {
+  background-color: rgba(239, 68, 68, 0.1); /* Red tint */
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.admonition-title {
+  font-weight: 700;
+  color: var(--docusaurus-heading-color);
+}
+
+.admonition-content p {
+  color: var(--docusaurus-muted-text-color);
+}
+
+
+/* =====================================================
+   SCROLLBARS & ANIMATIONS
+===================================================== */
+
+/* Custom Scrollbar - Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--docusaurus-card-backdrop);
+  border-radius: 10px;
+  border: 2px solid var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--docusaurus-secondary-highlight);
+}
+
+/* Standard Animations: Fade-up triggers for doc rendering viewports */
+/* This is a conceptual animation. Docusaurus content is often dynamically rendered. */
+/* For a true fade-up on scroll, a JS intersection observer would be needed. */
+/* This CSS provides a basic fade-in for page content on load/render. */
+.main-wrapper, .docMainContainer {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-up for general content blocks */
+.col {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0; /* Start hidden */
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
