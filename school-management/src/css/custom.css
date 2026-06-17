@@ -255,7 +255,19 @@ h6:hover {
 ===================================================== */
 
 /* 1. Mobile Sidebar Drawer Box Styling */
+/* 1. Mobile Sidebar Drawer Box Styling */
 .navbar-sidebar {
+  /* Har phone ki height ke hisab se automatic height aur dynamic 75% width 👇 */
+  width: 75vw !important;
+  max-width: 320px !important; /* Taake barri screens par zyada failay nahi */
+  height: 100vh !important;
+  height: -webkit-fill-available !important; /* iOS/Safari mobile screen fix */
+  
+  /* Agar modules zyada hain toh scrolling enable karne ke liye 👇 */
+  overflow-y: auto !important; 
+  display: flex !important;
+  flex-direction: column !important;
+
   background: linear-gradient(
     185deg,
     #020617 0%,
@@ -265,6 +277,7 @@ h6:hover {
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* 2. Mobile Sidebar Header (Top bar inside menu) */
@@ -272,6 +285,7 @@ h6:hover {
   background: transparent !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: none !important;
+  flex-shrink: 0 !important; /* Header apni jagah freeze rahega */
 }
 
 /* 3. Mobile Sidebar Links & Modules Text */
@@ -279,18 +293,21 @@ h6:hover {
   color: #94a3b8 !important; /* Soft grey text */
   font-weight: 500;
   border-radius: 8px;
-  margin: 4px 8px;
+  margin: 6px 12px; /* Thoda space barhaya taake phone par touch karna aasan ho */
+  display: block !important;
   transition: all 0.3s ease;
+}
+
+.navbar-sidebar__items {
+  flex: 1 !important;
+  overflow-y: auto !important; /* Modules scrollable ho jayenge screen se baahir nahi girenge */
+  padding: 1rem 0 !important;
 }
 
 /* Active and Hover state for items inside mobile slider */
 .navbar-sidebar__items .menu__link:hover,
 .navbar-sidebar__items .menu__link--active {
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.15),
-    rgba(56, 189, 248, 0.15)
-  ) !important;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(56, 189, 248, 0.15)) !important;
   color: #f8fafc !important; /* White text on active/hover */
   border-left: 3px solid #6366f1 !important;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
