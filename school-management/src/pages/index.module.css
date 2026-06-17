@@ -5,33 +5,41 @@
 .heroBanner {
   position: relative;
   padding: 6rem 0;
-  background: linear-gradient(
-    135deg,
-    #020617 0%,
-    #0f172a 40%,
-    #020617 100%
-  );
+  /* 👇 Gradient hata kar humne iska background exact Table of Contents jesa solid dark kar diya */
+  background: #020617 !important;
   overflow: hidden;
+  border-bottom: none !important;
 }
 
 .heroBanner::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.25), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(56,189,248,0.18), transparent 45%);
+  /* 👇 Glow ko thoda halka kiya taake background ka main color kharab na ho aur smooth blend mile */
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(99, 102, 241, 0.12),
+    transparent 50%
+  );
   animation: heroGlow 8s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
 @keyframes heroGlow {
-  from { opacity: 0.5; }
-  to   { opacity: 0.9; }
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0.9;
+  }
 }
 
 .heroContent {
-  text-align: left;
+  text-align: center; /* 👈 Left se hata kar center kar diya */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 👈 Buttons aur text sab bilkul center mein alignment ke liye */
+  justify-content: center;
   animation: fadeUp 1s ease-out;
 }
 
@@ -41,6 +49,12 @@
   letter-spacing: -0.02em;
   color: #f8fafc;
   margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.heroTitle:hover {
+  transform: scale(1.03);
 }
 
 .heroSubtitle {
@@ -48,7 +62,8 @@
   font-size: 1.15rem;
   line-height: 1.7;
   color: #c7d2fe;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem auto; /* 👈 Left/Right margin 'auto' kiya taake center ho sake */
+  text-align: center;
 }
 
 .ctaButton {
@@ -59,12 +74,12 @@
   color: #020617;
   border: none;
   transition: all 0.3s ease;
-  box-shadow: 0 12px 30px rgba(99,102,241,0.35);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
 }
 
 .ctaButton:hover {
   transform: scale(1.05);
-  box-shadow: 0 20px 45px rgba(56,189,248,0.45);
+  box-shadow: 0 20px 45px rgba(56, 189, 248, 0.45);
 }
 
 /* ===============================
@@ -72,12 +87,7 @@
 ================================ */
 .tocSection {
   padding: 5rem 1rem;
-  background: linear-gradient(
-    to bottom,
-    #020617 0%,
-    #020617 50%,
-    #030712 100%
-  );
+  background: #020617; /* 👈 Direct solid matching color ya linear gradient bina kisi hard cut ke */
   color: #e5e7eb;
 }
 
@@ -87,6 +97,12 @@
   font-size: 2.2rem;
   font-weight: 700;
   color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tocHeading:hover {
+  transform: scale(1.03);
 }
 
 /* ===============================
@@ -126,10 +142,16 @@
   transition: all 0.4s ease;
 }
 
+/* 1. JAB CARD PAR HOVER HO: Card upar uthega AUR icon 360 rotate hoga */
 .tocCard:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+  cursor: pointer;
+}
+
+.tocCard:hover .tocIcon {
+  transform: rotate(360deg);
 }
 
 .tocHeader {
@@ -142,6 +164,7 @@
   font-size: 2.5rem;
   display: block;
   margin-bottom: 0.5rem;
+  transition: transform 0.6s ease-in-out; /* Isse rotation makkhan jesi smooth chalegi */
 }
 
 .tocChapter {
@@ -178,30 +201,51 @@
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  transition: all 0.3s ease;
+  display: inline-block; /* Zaroori hai taake transform sahi se apply ho */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Isse zoom effect bohot premium lagega */
 }
 
 .tocButton:hover {
   background: linear-gradient(135deg, #6366f1, #38bdf8);
   color: #020617 !important;
   border-color: transparent;
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+
+  /* 👇 Yeh do lines button ko smoothly zoom (ubhar) aur shadow dengi */
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
 }
 
 /* ===============================
    RESPONSIVE
 ================================ */
+/* =====================================================
+   SAFE RESPONSIVE & MOBILE FIX FOR HOMEPAGE ONLY
+===================================================== */
 @media (max-width: 992px) {
-  .tocGridTop {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .tocGridTop,
   .tocGridBottom {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    margin: 0 auto 2rem auto !important;
+  }
+
+  .tocCard {
+    width: 100% !important;
+    max-width: 450px !important;
+    margin: 0 auto !important;
   }
 }
 
 @media (max-width: 600px) {
-  .tocGridTop {
-    grid-template-columns: 1fr;
+  .tocSection {
+    padding: 3rem 1rem !important;
+  }
+
+  .tocCard {
+    max-width: 100% !important;
   }
 }

@@ -1,9 +1,9 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
+import styles from "./index.module.css";
 
 /* ===============================
    TOC STYLE CARD
@@ -23,7 +23,10 @@ function TocCard({ chapter, title, description, icon, link }) {
         <p className={styles.tocDescription}>{description}</p>
 
         <Link
-          className={clsx('button button--secondary button--sm', styles.tocButton)}
+          className={clsx(
+            "button button--secondary button--sm",
+            styles.tocButton,
+          )}
           to={link}
         >
           Explore →
@@ -40,8 +43,8 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className={clsx('container', styles.heroContent)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+      <div className={clsx("container", styles.heroContent)}>
         <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
@@ -53,8 +56,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className={clsx(
-              'button button--secondary button--lg',
-              styles.ctaButton
+              "button button--secondary button--lg",
+              styles.ctaButton,
             )}
             to="/docs/frontmatter/introduction"
           >
@@ -80,11 +83,16 @@ export default function Home() {
       <HomepageHeader />
 
       <main className={styles.main}>
-
         {/* TABLE OF CONTENTS — WITH INLINE CENTER ALIGNMENT */}
         <section className={styles.tocSection}>
-          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-            <Heading as="h2" className={styles.tocHeading} style={{ textAlign: 'center', margin: '0 auto 3rem auto' }}>
+          <div
+            style={{ display: "flex", justifyContent: "center", width: "100%" }}
+          >
+            <Heading
+              as="h2"
+              className={styles.tocHeading}
+              style={{ textAlign: "center", margin: "0 auto 3rem auto" }}
+            >
               Table of Contents
             </Heading>
           </div>
@@ -129,13 +137,12 @@ export default function Home() {
             <TocCard
               chapter="Chapter 5"
               icon="🧩"
-              title="Technical Architecture & Appendix"
+              title="Technical Architecture"
               description="System architecture, data flow, and future enhancements."
               link="/docs/backmatter/architecture"
             />
           </div>
         </section>
-
       </main>
     </Layout>
   );

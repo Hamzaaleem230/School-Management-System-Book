@@ -11,20 +11,32 @@
 
   /* Custom Docusaurus variables */
   --docusaurus-card-backdrop: #0f172a; /* Card backdrops */
-  --docusaurus-sidebar-active-tint: rgba(99, 102, 241, 0.2); /* Subtle tint for active sidebar items */
+  --docusaurus-sidebar-active-tint: rgba(
+    99,
+    102,
+    241,
+    0.2
+  ); /* Subtle tint for active sidebar items */
   --docusaurus-secondary-highlight: #38bdf8; /* Secondary highlights */
   --docusaurus-text-color: #e2e8f0; /* Light gray text for readability */
   --docusaurus-muted-text-color: #94a3b8; /* Muted text for descriptions */
-  --docusaurus-border-color: rgba(255, 255, 255, 0.08); /* 1px border lines for glassmorphism */
+  --docusaurus-border-color: rgba(
+    255,
+    255,
+    255,
+    0.08
+  ); /* 1px border lines for glassmorphism */
   --docusaurus-heading-color: #f8fafc; /* Lighter headings */
 
   /* Typography */
-  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --ifm-font-family-base:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --ifm-line-height-base: 1.75; /* Increased line-height for readability */
 }
 
 /* Dark mode adjustments - ensure theme parameters match flawlessly */
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --ifm-background-color: #020617;
   --ifm-color-primary: #6366f1;
   --ifm-color-secondary: #38bdf8;
@@ -47,18 +59,33 @@ body {
   background-color: var(--ifm-background-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--docusaurus-heading-color);
   transition: color 0.3s ease; /* Smooth transition for hover glow */
 }
 
 /* Micro-interactions: Soft glow on headers on hover */
-h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
-  text-shadow: 0 0 8px rgba(99, 102, 241, 0.6), 0 0 16px rgba(56, 189, 248, 0.4);
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  text-shadow:
+    0 0 8px rgba(99, 102, 241, 0.6),
+    0 0 16px rgba(56, 189, 248, 0.4);
 }
 
 /* Readability in markdown blocks */
-.markdown p, .markdown li, .markdown td, .markdown th {
+.markdown p,
+.markdown li,
+.markdown td,
+.markdown th {
   line-height: var(--ifm-line-height-base);
 }
 
@@ -84,7 +111,9 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 
 /* Smooth transitions for sidebar folder collapse/expand */
 .menu__list-item-collapsible {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* =====================================================
@@ -101,14 +130,20 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.markdown table th, .markdown table td {
+.markdown table th,
+.markdown table td {
   border-color: var(--docusaurus-border-color);
   padding: 12px 16px;
   color: var(--docusaurus-text-color);
 }
 
 .markdown table th {
-  background-color: rgba(99, 102, 241, 0.1); /* Subtle primary tint for headers */
+  background-color: rgba(
+    99,
+    102,
+    241,
+    0.1
+  ); /* Subtle primary tint for headers */
 }
 
 /* Admonitions (Callouts) */
@@ -151,7 +186,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   color: var(--docusaurus-muted-text-color);
 }
 
-
 /* =====================================================
    SCROLLBARS & ANIMATIONS
 ===================================================== */
@@ -181,22 +215,135 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 /* This is a conceptual animation. Docusaurus content is often dynamically rendered. */
 /* For a true fade-up on scroll, a JS intersection observer would be needed. */
 /* This CSS provides a basic fade-in for page content on load/render. */
-.main-wrapper, .docMainContainer {
+.main-wrapper,
+.docMainContainer {
   animation: fadeIn 0.8s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Fade-up for general content blocks */
 .col {
-    animation: fadeUp 0.8s ease-out forwards;
-    opacity: 0; /* Start hidden */
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0; /* Start hidden */
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   MOBILE NAVBAR & SIDEBAR GLASSMORPHISM THEME
+===================================================== */
+
+/* 1. Mobile Sidebar Drawer Box Styling */
+.navbar-sidebar {
+  background: linear-gradient(
+    185deg,
+    #020617 0%,
+    #0f172a 60%,
+    #020617 100%
+  ) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 2. Mobile Sidebar Header (Top bar inside menu) */
+.navbar-sidebar__brand {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+/* 3. Mobile Sidebar Links & Modules Text */
+.navbar-sidebar__items .menu__link {
+  color: #94a3b8 !important; /* Soft grey text */
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+/* Active and Hover state for items inside mobile slider */
+.navbar-sidebar__items .menu__link:hover,
+.navbar-sidebar__items .menu__link--active {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.15),
+    rgba(56, 189, 248, 0.15)
+  ) !important;
+  color: #f8fafc !important; /* White text on active/hover */
+  border-left: 3px solid #6366f1 !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+/* Back button in mobile menu subcategories */
+.menu__list-item-collapsible .menu__link--back {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #6366f1 !important;
+}
+
+/* Close button for mobile menu */
+.navbar-sidebar__close {
+  color: #f8fafc !important;
+  opacity: 0.8;
+}
+.navbar-sidebar__close:hover {
+  opacity: 1;
+}
+
+/* =====================================================
+   MOBILE HERO & CONTENT FIXES (RESPONSIVENESS)
+===================================================== */
+@media (max-width: 768px) {
+  /* Hero section adjustments for mobile */
+  [class*="heroBanner"] {
+    padding: 4rem 1rem !important;
+    text-align: center !important;
+  }
+
+  [class*="heroContent"] {
+    text-align: center !important;
+  }
+
+  [class*="heroTitle"] {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  [class*="heroSubtitle"] {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    padding: 0 10px;
+  }
+
+  /* Table of Contents heading responsive spacing */
+  [class*="tocHeading"] {
+    font-size: 1.8rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Grid gap adjustments for tiny mobile screens */
+  [class*="tocGridTop"],
+  [class*="tocGridBottom"] {
+    gap: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
 }
