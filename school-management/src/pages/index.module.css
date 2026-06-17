@@ -187,6 +187,7 @@
   font-size: 1.3rem;
   color: #f8fafc;
   margin-bottom: 0.7rem;
+  cursor: pointer;
 }
 
 .tocDescription {

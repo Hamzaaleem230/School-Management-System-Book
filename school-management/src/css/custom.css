@@ -65,6 +65,7 @@ h3,
 h4,
 h5,
 h6 {
+  cursor: pointer;
   color: var(--docusaurus-heading-color);
   transition: color 0.3s ease; /* Smooth transition for hover glow */
 }
@@ -178,6 +179,7 @@ h6:hover {
 }
 
 .admonition-title {
+  cursor: pointer;
   font-weight: 700;
   color: var(--docusaurus-heading-color);
 }
